@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Admin Dashboard</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'admin_dashboard' %}">Dashboard</a></li>
+                    <li><a href="{% url 'admin_list' %}">Admin List</a></li>
+                    <li><a href="{% url 'parent_list' %}">Parents</a></li>
+                    <li><a href="{% url 'carinderia_list' %}">Carinderias</a></li>
+                    <li><a href="{% url 'school_list' %}">Schools</a></li>
+                    <li><a href="{% url 'student_list' %}">Students</a></li>
+                    <li><a href="{% url 'user_logout' %}">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <section class="dashboard-overview">
+                <h2>Welcome to the Admin Dashboard</h2>
+                <p>Manage your application from here. Use the navigation menu to access different sections.</p>
+                <div class="dashboard-cards">
+                    <div class="card">
+                        <h3>Recent Activities</h3>
+                        <p>Check out the latest activities in your application.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Application Stats</h3>
+                        <p>View key statistics and metrics.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="{% url 'admin_list' %}">Manage Admins</a></li>
+                            <li><a href="{% url 'parent_list' %}">Manage Parents</a></li>
+                            <li><a href="{% url 'carinderia_list' %}">Manage Carinderias</a></li>
+                            <li><a href="{% url 'school_list' %}">Manage Schools</a></li>
+                            <li><a href="{% url 'student_list' %}">Manage Students</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Application Name</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Form</title>
+    <link rel="stylesheet" href="{% static 'menu/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Admin Form</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'admin_list' %}" class="btn">Admin List</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <form method="post" enctype="multipart/form-data" class="admin-form">
+                {% csrf_token %}
+                <h2>{% block heading %}Add New Admin{% endblock %}</h2>
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-save">Save</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

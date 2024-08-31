@@ -1,0 +1,52 @@
+<!-- menu/templates/menu/carinderia_list.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carinderia List</title>
+    <link rel="stylesheet" href="{% static 'menu/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Carinderia List</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'carinderia_create' %}">Create New Carinderia</a></li>
+                    <li><a href="{% url 'admin_list' %}">Admin List</a></li>
+                    <li><a href="{% url 'parent_list' %}">Parent List</a></li>
+                    <li><a href="{% url 'student_list' %}">Student List</a></li>
+                    <li><a href="{% url 'carinderia_list' %}">Carinderia List</a></li>
+                    <li><a href="{% url 'school_list' %}">School List</a></li>
+                    <li><a href="{% url 'admin_dashboard' %}">HOME</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container main">
+        <ul class="admin-list">
+            {% for carinderia in carinderias %}
+            <li>
+                <div class="admin-item">
+                    <div class="admin-info">
+                        <h2>{{ carinderia.CARIN_NAME }}</h2>
+                        <p>Email: {{ carinderia.CARIN_EMAIL }}</p>
+                        <p>Phone: {{ carinderia.CARIN_PHONE }}</p>
+                        <p>Address: {{ carinderia.CARIN_ADDRESS }}</p>
+                        <p>Date Created: {{ carinderia.CARIN_DATECREATED }}</p>
+                    </div>
+                    <div class="admin-actions">
+                        <a href="{% url 'carinderia_detail' carinderia.pk %}" class="btn">View</a>
+                        <a href="{% url 'carinderia_update' carinderia.pk %}" class="btn">Update</a>
+                        <form action="{% url 'carinderia_delete' carinderia.pk %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-delete">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

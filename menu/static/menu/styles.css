@@ -1,0 +1,142 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-left: 1rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav a.btn {
+    background-color: #007bff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+nav a.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Main Styles */
+main {
+    padding: 2rem;
+    margin-top: 80px; /* Adjust based on header height */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+form {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form h2 {
+    margin-top: 0;
+}
+
+form .form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+button, a.btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+button:hover, a.btn:hover {
+    background-color: #0056b3;
+}
+
+button.btn-delete {
+    background-color: #dc3545;
+}
+
+button.btn-delete:hover {
+    background-color: #c82333;
+}
+
+button.btn-cancel, a.btn-cancel {
+    background-color: #6c757d;
+}
+
+button.btn-cancel:hover, a.btn-cancel:hover {
+    background-color: #5a6268;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+table th, table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f4f4f4;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

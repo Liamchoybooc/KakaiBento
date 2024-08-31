@@ -1,0 +1,36 @@
+<!-- menu/templates/menu/student_detail.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Detail</title>
+    <link rel="stylesheet" href="{% static 'menu/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Student Detail</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'student_list' %}">Back to Student List</a></li>
+                    <li><a href="{% url 'student_update' student.pk %}">Update Student</a></li>
+                    <li><a href="{% url 'student_delete' student.pk %}">Delete Student</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container main">
+        <div class="admin-item">
+            <div class="admin-info">
+                <h2>ID : {{student.STUD_STUDID}}<h2>
+                <h2>{{ student.STUD_FNAME }} {{ student.STUD_LNAME }}</h2>
+                <p>Parent: {{ student.PARENT }}</p>
+                <p>School: {{ student.SCHOOL }}</p>
+                <p>Section: {{ student.STUD_SECTION }}</p>
+                <p>Address: {{ student.STUD_ADDRESS }}</p>
+                <p>Date Created: {{ student.STUD_DATECREATED }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

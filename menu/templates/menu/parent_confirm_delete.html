@@ -1,0 +1,29 @@
+<!-- menu/templates/menu/parent_confirm_delete.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Delete</title>
+    <link rel="stylesheet" href="{% static 'menu/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Confirm Delete</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'parent_list' %}">Back to Parent List</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container main confirmation">
+        <h2>Are you sure you want to delete {{ parent.PARENT_FNAME }} {{ parent.PARENT_LNAME }}?</h2>
+        <form action="{% url 'parent_delete' parent.pk %}" method="post" class="btn-group">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-delete">Delete</button>
+            <a href="{% url 'parent_list' %}" class="btn btn-cancel">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

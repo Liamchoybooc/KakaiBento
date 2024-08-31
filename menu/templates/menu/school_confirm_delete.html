@@ -1,0 +1,29 @@
+<!-- menu/templates/menu/school_confirm_delete.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Delete</title>
+    <link rel="stylesheet" href="{% static 'menu/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Confirm Delete</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'school_list' %}">Back to School List</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container main confirmation">
+        <h2>Are you sure you want to delete {{ school.SCHOOL_NAME }}?</h2>
+        <form action="{% url 'school_delete' school.pk %}" method="post" class="btn-group">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-delete">Delete</button>
+            <a href="{% url 'school_list' %}" class="btn btn-cancel">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

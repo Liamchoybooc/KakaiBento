@@ -1,0 +1,34 @@
+<!-- menu/templates/menu/school_detail.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School Detail</title>
+    <link rel="stylesheet" href="{% static 'menu/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>School Detail</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'school_list' %}">Back to School List</a></li>
+                    <li><a href="{% url 'school_update' school.pk %}">Update School</a></li>
+                    <li><a href="{% url 'school_delete' school.pk %}">Delete School</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container main">
+        <div class="admin-item">
+            <div class="admin-info">
+                <h2>{{ school.SCHOOL_NAME }}</h2>
+                <p>Email: {{ school.SCHOOL_EMAIL }}</p>
+                <p>Phone: {{ school.SCHOOL_PHONE }}</p>
+                <p>Address: {{ school.SCHOOL_ADDRESS }}</p>
+                <p>Date Created: {{ school.SCHOOL_DATECREATED }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

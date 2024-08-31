@@ -1,0 +1,28 @@
+<!-- menu/templates/menu/carinderia_form.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Carinderia Form{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'menu/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>{% block heading %}Carinderia Form{% endblock %}</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'carinderia_list' %}">Back to Carinderia List</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container main">
+        <form method="post" enctype="multipart/form-data" class="admin-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Save</button>
+        </form>
+    </div>
+</body>
+</html>

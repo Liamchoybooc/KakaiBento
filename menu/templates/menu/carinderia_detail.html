@@ -1,0 +1,34 @@
+<!-- menu/templates/menu/carinderia_detail.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carinderia Detail</title>
+    <link rel="stylesheet" href="{% static 'menu/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Carinderia Detail</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'carinderia_list' %}">Back to Carinderia List</a></li>
+                    <li><a href="{% url 'carinderia_update' carinderia.pk %}">Update Carinderia</a></li>
+                    <li><a href="{% url 'carinderia_delete' carinderia.pk %}">Delete Carinderia</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container main">
+        <div class="admin-item">
+            <div class="admin-info">
+                <h2>{{ carinderia.CARIN_NAME }}</h2>
+                <p>Email: {{ carinderia.CARIN_EMAIL }}</p>
+                <p>Phone: {{ carinderia.CARIN_PHONE }}</p>
+                <p>Address: {{ carinderia.CARIN_ADDRESS }}</p>
+                <p>Date Created: {{ carinderia.CARIN_DATECREATED }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!-- menu/templates/menu/parent_list.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parent List</title>
+    <link rel="stylesheet" href="{% static 'menu/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Parent List</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'parent_create' %}">Create New Parent</a></li>
+                    <li><a href="{% url 'admin_list' %}">Admin List</a></li>
+                    <li><a href="{% url 'parent_list' %}">Parent List</a></li>
+                    <li><a href="{% url 'student_list' %}">Student List</a></li>
+                    <li><a href="{% url 'carinderia_list' %}">Carinderia List</a></li>
+                    <li><a href="{% url 'school_list' %}">School List</a></li>
+                    <li><a href="{% url 'admin_dashboard' %}">HOME</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container main">
+        <ul class="admin-list">
+            {% for parent in parents %}
+            <li>
+                <div class="admin-item">
+                    <div class="admin-info">
+                        <h2>{{ parent.PARENT_FNAME }} {{ parent.PARENT_LNAME }}</h2>
+                        <p>Email: {{ parent.PARENT_EMAIL }}</p>
+                        <p>Phone: {{ parent.PARENT_PHONE }}</p>
+                        <p>Address: {{ parent.PARENT_ADDRESS }}</p>
+                        <p>Date Created: {{ parent.PARENT_DATECREATED }}</p>
+                    </div>
+                    <div class="admin-actions">
+                        <a href="{% url 'parent_detail' parent.pk %}" class="btn">View</a>
+                        <a href="{% url 'parent_update' parent.pk %}" class="btn">Update</a>
+                        <form action="{% url 'parent_delete' parent.pk %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-delete">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
